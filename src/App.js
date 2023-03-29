@@ -1,16 +1,33 @@
+import "./App.css";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
-import "./App.css";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+ 
 function App() {
+
+  const MONTHS = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ]
+
+  const [userStats, setUserStats] = useState([])
+    const getStats = async () => {
+      const res = axios.get('/users/stats', {
+        
+      })
+    }
+  useEffect(() => {
+
+  })
+
   return (
     <Router>
       <Topbar />
