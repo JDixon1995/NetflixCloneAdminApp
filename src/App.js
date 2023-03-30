@@ -15,18 +15,27 @@ import axios from 'axios'
 function App() {
 
   const MONTHS = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
   ]
 
   const [userStats, setUserStats] = useState([])
-    const getStats = async () => {
-      const res = axios.get('/users/stats', {
-        
-      })
-    }
+    
   useEffect(() => {
-
-  })
+    const getStats = async () => {
+      try {
+        const res = await axios.get('/users/stats', {
+          headers: {
+            token : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MThlMzJjM2RlYzI2M2IwNzMwZjU4ZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MDIxMzQwNiwiZXhwIjoxNjgwNjQ1NDA2fQ.j5LZ0EiRbp2nKdJF918IQVjTF07a4DKHEF0S6FlJkzs"
+          }
+        })
+        setUserStats(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getStats()
+  }, [])
+  console.log(userStats)
 
   return (
     <Router>
