@@ -32,7 +32,6 @@ export default function Home() {
       }
     }
     getStats()
-    console.log(userStats)
   }, [MONTHS])
 
   return (
