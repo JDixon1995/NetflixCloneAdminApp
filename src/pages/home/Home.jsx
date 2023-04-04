@@ -23,6 +23,9 @@ export default function Home() {
             token : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MThlMzJjM2RlYzI2M2IwNzMwZjU4ZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MDIxMzQwNiwiZXhwIjoxNjgwNjQ1NDA2fQ.j5LZ0EiRbp2nKdJF918IQVjTF07a4DKHEF0S6FlJkzs"
           }
         })
+        const statsList = res.data.sort(function (a, b) {
+          return a._id - b._id
+        })
         res.data.map(item => setUserStats(prev => [...prev, {name: MONTHS[item._id - 1], 'New User' : item.total }]))
       } catch (err) {
         console.log(err)
