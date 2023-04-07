@@ -17,8 +17,9 @@ function App() {
   return (
     <Router>
       <Route path='/login'>{ user ? <Redirect to='/' /> : <Login />}</Route>
+      {user &&
+      <>
       <Topbar />
-      {user && 
       <div className="container">
         <Sidebar />
         <Switch>
@@ -35,7 +36,8 @@ function App() {
             <NewUser />
           </Route>
         </Switch>
-      </div>}
+      </div>
+      </>}
     </Router>
   );
 }
