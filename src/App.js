@@ -8,19 +8,14 @@ import NewUser from "./pages/newUser/NewUser";
 import Login from "./pages/login/login";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
  
 function App() {
 
   const { user } = useContext(AuthContext)
-
+  console.log(user)
   return (
     <Router>
-      <>
-      <Route 
-      path='/login'>
-        {user ? <Redirect to="/" /> : <Login />}
-      </Route>
       <Topbar />
       <div className="container">
         <Sidebar />
@@ -39,7 +34,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </>
     </Router>
   );
 }
