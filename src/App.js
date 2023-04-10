@@ -10,6 +10,7 @@ import List from "./pages/list/List";
 import ListList from "./pages/listList/ListList"
 import NewUser from "./pages/newUser/NewUser";
 import NewList from './pages/newList/NewList'
+import NewMovie from './pages/newMovie/NewMovie'
 import Login from "./pages/login/login";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { useContext } from 'react'
@@ -22,7 +23,7 @@ function App() {
   return (
     <Router>
       <Route path='/login'>{ user ? <Redirect to='/' /> : <Login />}</Route>
-      {user &&
+      {user && (
       <>
       <Topbar />
       <div className="container">
@@ -46,6 +47,9 @@ function App() {
           <Route path="/movie/:movieId">
             <Movie />
           </Route>
+          <Route path="/newMovie">
+            <NewMovie />
+          </Route>
           <Route path="/lists">
             <ListList />
           </Route>
@@ -57,7 +61,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-      </>}
+      </>)}
     </Router>
   );
 }
