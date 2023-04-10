@@ -1,14 +1,14 @@
 import axios from "axios";
 import { 
-    getMoviesStart,
-    getMoviesSuccess,
-    getMoviesFailure,
     createMovieStart,
     createMovieSuccess,
     createMovieFailure,
-    updateMovieStart,
-    updateMovieSuccess,
-    updateMovieFailure,
+    deleteMovieStart,
+    deleteMovieSuccess,
+    deleteMovieFailure,
+    getMoviesStart,
+    getMoviesSuccess,
+    getMoviesFailure,
  } from "./MovieActions";
 
  export const getMovies = async (dispatch) => {
