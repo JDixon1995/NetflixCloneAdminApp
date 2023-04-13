@@ -7,13 +7,13 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ListContextProvider>
+      <AuthContextProvider>
       <MovieContextProvider>
-        <AuthContextProvider>
+        <ListContextProvider>
           <App />
-        </AuthContextProvider>
+        </ListContextProvider>
       </MovieContextProvider>
-    </ListContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
