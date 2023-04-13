@@ -18,7 +18,7 @@ export default function UserList() {
   };
   
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 90 },
     {
       field: "user",
       headerName: "User",
@@ -50,12 +50,12 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/user/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -71,6 +71,7 @@ export default function UserList() {
         columns={columns}
         pageSize={8}
         checkboxSelection
+        getRowId={(r) => r._id}
       />
     </div>
   );
