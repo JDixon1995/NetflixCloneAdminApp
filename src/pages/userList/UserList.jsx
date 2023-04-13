@@ -1,15 +1,20 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { UserContext } from '../../context/userContext/UserContext'
+import { getUsers, deleteUser } from '../../context/userContext/userAPICalls'
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  const { users, dispatch } = useContext(UserContext)
+
+  useEffect(() => {
+    getUsers(dispatch)
+  }, [dispatch])
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteUser(id, dispatch)
   };
   
   const columns = [
@@ -61,7 +66,7 @@ export default function UserList() {
   return (
     <div className="userList">
       <DataGrid
-        rows={data}
+        rows={users}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
