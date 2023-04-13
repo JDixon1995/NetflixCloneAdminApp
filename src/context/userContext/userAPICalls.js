@@ -62,7 +62,7 @@ import {
   export const deleteUser = async (id, dispatch) => {
     dispatch(deleteUserStart());
     try {
-      await axios.delete("/user/" + id, {
+      await axios.delete("/users/" + id, {
         headers: {
           token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
         },
